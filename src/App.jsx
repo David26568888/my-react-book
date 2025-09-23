@@ -3,7 +3,8 @@ import { useState,useEffect } from 'react'
 
 function App() {
 const [books,setBooks] = useState([]);
-  
+const [newBook,setNewBook] = useState({name:'',price:0.0,amount:0,pub:true});
+
 useEffect(() => {
   fetchBooks();
 },[])
@@ -26,9 +27,24 @@ function fetchBooks(){
       })  //錯誤處理
 }
 
+//新增書籍
+function addBook(){
+   alert(JSON.stringify(newBook));
+}
+
 return(
      <>
-   <h1>My Book書籍列表</h1>
+   <h1>My Book書籍新增</h1>
+   書名:<input type="text" value={newBook.name} onChange={e=>setNewBook({...newBook,name:e.target.value})} /><p/>
+   價格˙:<input type="number" value={newBook.price} onChange={e=>setNewBook({...newBook,price:e.target.value})} /><p/>
+   數量:<input type="number" value={newBook.amount} onChange={e=>setNewBook({...newBook,amount:e.target.value})} /><p/>
+    出版: <select value={newBook.pub ? "true" : "false"} onChange={e => setNewBook({...newBook, pub:e.target.value==="true"})} >
+              <option value="true">已出版</option>
+              <option value="false">已絕版</option>
+           </select><p />
+    <button onClick={addBook}>新增書籍</button><p/>
+
+    <h1>My Book書籍列表</h1>
     <h2>
       {books.length}筆
       <ul>
