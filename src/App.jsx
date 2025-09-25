@@ -162,18 +162,18 @@ function App() {
 
            
       {/* <button onClick={addBook} disabled={isEditing}>新增書籍</button> */}
-      {
-      newBook.id ===0 ?
-      (<button onClick={addBook} >新增書籍</button>)
-      :
-     
-      (
-         <>
-      <button onClick={() => updateBook()}>更新書籍</button>
-      <button onClick={() => canselEdit()}>取消書籍</button>
-      </>
-      )
-      }
+      
+    {
+        newBook.id === 0 ? 
+          (<button onClick={addBook}>新增書籍</button>) 
+          : 
+          (
+            <>
+              <button onClick={() => updateBook()}>更新書籍</button>
+              <button onClick={() => cancelEdit()}>取消編輯</button>
+            </>
+          )
+      }     
 
       <h1>My Book 書籍列表</h1>
       <h2>
