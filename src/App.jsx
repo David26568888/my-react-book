@@ -139,7 +139,11 @@ function App() {
         }) // 錯誤處理
   }
 
-  
+    function cancelEdit() {
+    // 清空欄位資料
+    setNewBook({id:0, name:'', price:0.0, amount:0, pub:false});
+  }
+
 
   return (
     <>
